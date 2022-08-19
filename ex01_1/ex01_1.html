@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion of units</title>
+    <script src="./js/ex01_1.js" defer></script>
+    <style>
+        /*common*/
+        a{text-decoration: none;}
+        ul{list-style: none; margin:0; padding:0;}
+        button{background: #555; border:0; border-radius: 12px; padding:10px 12px; color:#fff;}
+        .blind {position: absolute; width:1px; height: 1px; clip:rect(0 0 0 0); overflow: hidden;}
+
+        /*style*/
+        .conversion_box {padding:20px; overflow: hidden; border:2px solid #ccc;}
+        #tabCategory {display: flex; justify-content: center;}
+        #tabCategory label {border: 1px solid #ccc; margin:0 5px; cursor: pointer; width: 80px; padding:5px; border-radius: 8px; text-align: center;}
+        #tabCategory label:hover{background: #acacac; color:#fff;}
+        #tabCategory label.active {background: skyblue; color:#fff;}
+        .sort_cate p {text-align: center;}
+        .sort_cate .sel_box {display: flex; justify-content: center; margin:20px 0;}
+        .sort_cate .sel_box select{width:50%; margin:0 5px; width: 80px; }
+        .middle_area {display:flex; justify-content: center; align-items: center; flex-direction: column;}
+        .middle_area .btn_conver {margin-bottom: 20px;}
+        .middle_area .btn_conver button{cursor: pointer;}
+
+    </style>
+</head>
+<body>    
+    <div class="conversion_box">
+        <div class="top_area">
+            <div name="" id="tabCategory">
+                <label for="weight" class="weight">무게</label>
+                <input type="radio" name="unitName" id="weight" class="chkType blind" />
+                <label for="area" class="area">넓이</label>
+                <input type="radio" name="unitName" id="area" class="chkType blind" />
+            </div>
+        </div>
+        <div class="sort_cate">
+            <p><b>변경하려는 단위값을 선택해주세요</b></p>
+            <div class="sel_box">
+                <select name="" id="unitInput">
+                    <option value="">선택</option>
+                    <option data-type="weight" value="">g</option>
+                    <option data-type="weight" value="">kg</option>
+                    <option data-type="weight" value="">mg</option>
+                    <option data-type="area" value="">㎡</option>
+                    <option data-type="area" value="">평</option>
+                </select>
+                <em class="cate_arrow">-></em>
+                <select name="" id="unitOutput">
+                    <option value="">선택</option>
+                    <option data-type="weight" value="">g</option>
+                    <option data-type="weight" value="">kg</option>
+                    <option data-type="weight" value="">mg</option>
+                    <option data-type="area" value="">㎡</option>
+                    <option data-type="area" value="">평</option>
+                </select>
+            </div>
+        </div>
+        <div class="middle_area">
+            <div class="btn_conver">
+                <button>변환하기</button>
+            </div>
+            <div class="input_box">
+                <label for="input">입력값</label>
+                <input type="text" id="input" />
+                <strong class="unit_input"></strong>
+            </div>
+            =
+            <div class="output_box">
+                <label for="output">변환값</label>
+                <input type="text" id="output" readonly disabled/>
+                <strong class="unit_output"></strong>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+
+    </script>
+</body>
+</html>
