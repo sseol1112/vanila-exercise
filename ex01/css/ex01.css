@@ -1,0 +1,4 @@
+.count_area{ display: flex; flex-direction: column;}
+.count_area .count_val {text-align: center;}
+.count_area .count_btn{ display:flex; justify-content: center; }
+.count_area .count_btn button {border:0; width:36px; margin:0 5px; border-radius: 10px; padding:10px; background:#555; color:#fff; cursor: pointer;}

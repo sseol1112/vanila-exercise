@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>count example.</title>
+    <link rel="stylesheet" type="text/css" href="./css/ex01.css">
+    <script src="./js/ex01.js" defer></script> <!-- defer와 async -->
+    <!--
+        // 스크립트 호출 방식 : 마크업 전체 생성 후 스크립트 호출
+        1. script defer 속성 이용, 
+        2. script 내 window.onload = function(){};
+
+        // 비동기 호출 : 
+        0. script async 속성 : 권장하지 않음
+        1. $(document).ready(function(){});  또는 $(function(){...}); (같은 표현)  -> jQuery용
+        2. 즉시실행함수 
+        (function(){...})();  -> vanila script        
+    -->
+</head>
+<body>
+    <div class="count_area">
+        <p class="count_val">0</p>
+        <div class="count_btn">
+            <button class="btn plus">+</button> 
+            <button class="btn minus">-</button>
+        </div>
+    </div>
+</body>
+</html>
