@@ -80,27 +80,50 @@ function checkConvert(input,output){
     } else if(!inputValue) {
         alert("변환하고자하는 입력값을 입력해주세요.")
     } else {
-        // 탭버튼 선택하고, 입력값도 입력했을 경우에만 해당 분기 조건 실행
-        if(input == 'kg' && output == 'g' || input == 'g' && output == 'mg'){
-            //kg -> g  또는 g -> mg
-            resultVal = Number(inputValue) * 1000; 
-            
-            //console.log("변환 계산값" + resultVal);
-        } else if (input == 'g' && output == 'kg' || input == 'mg' && output == 'g') {
-            resultVal = Number(inputValue) * 0.001;
-        } else if (input == '㎡' && output == '평'){
-            resultVal = Math.round(inputValue / 3.3058)
-        } else if (input == '평' && output == '㎡'){
-            resultVal = Math.round(inputValue * (1 / 3.3058)) // 정확한 계산식 확인해서 바꾸기!
-        } else if (input == output ){
+        // 22.08.24 if문 -> switch-case 문으로 구조 변경
+        if(input == output ) {
             alert("입력값, 변환값을 동일하게 선택하였습니다. \n서로 다른 단위를 선택해주세요.")
         } else {
-            alert("변환할수 없는 단위 입니다. 선택값을 다시 확인 해주세요.")
-        }
-        outputEl.value = resultVal;
+            switch(input, output) {
+                case 'kg', 'g' :
+                case 'g', 'mg' :
+                    resultVal = Number(inputValue) * 1000;
+                    break;
+                case 'g', 'kg' :
+                case 'mg', 'g' :
+                    resultVal = Number(inputValue) * 0.001;
+                    break;
+                case '㎡','평' :
+                    resultVal = Math.round(inputValue / 3.3058)
+                    break;
+                case '평','㎡' :
+                    resultVal = Math.round(inputValue * (1 / 3.3058))
+                    break; 
+                default:
+                    alert("변환할수 없는 단위 입니다. 선택값을 다시 확인 해주세요.");
+            }
 
-        inputUnit.innerHTML = input;
-        outputUnit.innerHTML = output;
+            // if(input == 'kg' && output == 'g' || input == 'g' && output == 'mg'){
+            //     //kg -> g  또는 g -> mg
+            //     resultVal = Number(inputValue) * 1000; 
+                
+            //     //console.log("변환 계산값" + resultVal);
+            // } else if (input == 'g' && output == 'kg' || input == 'mg' && output == 'g') {
+            //     resultVal = Number(inputValue) * 0.001;
+            // } else if (input == '㎡' && output == '평'){
+            //     resultVal = Math.round(inputValue / 3.3058)
+            // } else if (input == '평' && output == '㎡'){
+            //     resultVal = Math.round(inputValue * (1 / 3.3058)) // 정확한 계산식 확인해서 바꾸기!
+            // } else if (input == output ){
+            //     alert("입력값, 변환값을 동일하게 선택하였습니다. \n서로 다른 단위를 선택해주세요.")
+            // } else {
+            //     alert("변환할수 없는 단위 입니다. 선택값을 다시 확인 해주세요.")
+            // }
+
+            outputEl.value = resultVal;
+            inputUnit.innerHTML = input;
+            outputUnit.innerHTML = output;
+        }   
     }
 }
 
